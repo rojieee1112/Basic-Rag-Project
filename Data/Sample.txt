@@ -1,0 +1,7 @@
+Python is a high-level programming language.
+
+Python supports object-oriented programming.
+
+Decorators allow modifying functions without changing their source code.
+
+Generators help create iterators efficiently.
