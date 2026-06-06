@@ -1,11 +1,13 @@
-from langchain_community.document_loaders import TextLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from sentence_transformers import SentenceTransformer
 from langchain_core.embeddings import Embeddings
 
 
-# Wrapper for SentenceTransformer
+# ----------------------------
+# Embeddings
+# ----------------------------
 class SBERTEmbeddings(Embeddings):
     def __init__(self):
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -17,32 +19,37 @@ class SBERTEmbeddings(Embeddings):
         return self.model.encode(text).tolist()
 
 
-print("Loading document...")
+print("Loading PDF...")
 
-loader = TextLoader("data/sample.txt")
+# CHANGE THIS FILE NAME
+loader = PyPDFLoader("data/AI_note.pdf")
 documents = loader.load()
 
-print(f"Loaded {len(documents)} document(s)")
+print(f"Loaded {len(documents)} pages")
 
-# Split document into chunks
+# ----------------------------
+# Chunking
+# ----------------------------
 splitter = RecursiveCharacterTextSplitter(
-    chunk_size=200,
-    chunk_overlap=20
+    chunk_size=500,
+    chunk_overlap=50
 )
 
-docs = splitter.split_documents(documents)
+chunks = splitter.split_documents(documents)
 
-print(f"Created {len(docs)} chunks")
+print(f"Created {len(chunks)} chunks")
 
-# Create embeddings
+# ----------------------------
+# Embeddings
+# ----------------------------
 embedding_model = SBERTEmbeddings()
 
 print("Creating vector database...")
 
 vectordb = Chroma.from_documents(
-    documents=docs,
+    documents=chunks,
     embedding=embedding_model,
     persist_directory="chroma_db"
 )
 
-print("Vector database created successfully!")
+print("Vector DB created successfully!")
