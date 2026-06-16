@@ -3,10 +3,10 @@ from sentence_transformers import SentenceTransformer
 from langchain_core.embeddings import Embeddings
 import ollama
 
-
 # ----------------------------
 # 1. Embedding Model Wrapper
 # ----------------------------
+
 class SBERTEmbeddings(Embeddings):
     def __init__(self):
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -21,6 +21,7 @@ class SBERTEmbeddings(Embeddings):
 # ----------------------------
 # 2. Load Vector Database
 # ----------------------------
+
 print("\nLoading vector database...")
 
 embedding_model = SBERTEmbeddings()
