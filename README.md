@@ -4,7 +4,7 @@ An AI-powered chatbot that allows users to ask questions about a PDF document us
 
 ## 🚀 Live Demo
 
-🔗 **Hugging Face Spaces:** * https://rojieee-basic-rag-project.hf.space/ *
+🔗 **Hugging Face Spaces:**  https://rojieee-basic-rag-project.hf.space/ 
 
 ---
 
