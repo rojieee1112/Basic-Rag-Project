@@ -112,8 +112,8 @@ Since it runs on the free tier of Hugging Face Spaces, generating responses may 
 Clone the repository:
 
 ```bash
-git clone https://github.com/rojieee1112/your-repository.git
-cd your-repository
+git clone https://github.com/rojieee1112/Basic-Rag-Project.git
+cd Basic-Rag-Project
 ```
 
 Install dependencies:
