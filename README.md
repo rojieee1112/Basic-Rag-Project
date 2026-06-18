@@ -112,7 +112,7 @@ Since it runs on the free tier of Hugging Face Spaces, generating responses may 
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/your-repository.git
+git clone https://github.com/rojieee1112/your-repository.git
 cd your-repository
 ```
 
