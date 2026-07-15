@@ -37,6 +37,7 @@ print("Vector DB loaded successfully!")
 # ----------------------------
 # 3. Chat Loop (RAG)
 # ----------------------------
+
 print("\nRAG Chat is ready! Type 'exit' to stop.\n")
 
 while True:
@@ -55,6 +56,7 @@ while True:
     print(context)
 
     # Step 2: Build prompt
+    
     prompt = f"""
 You are a helpful assistant.
 Answer ONLY using the context below.
