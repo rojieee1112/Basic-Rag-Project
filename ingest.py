@@ -8,6 +8,7 @@ from langchain_core.embeddings import Embeddings
 # ----------------------------
 # Embeddings
 # ----------------------------
+
 class SBERTEmbeddings(Embeddings):
     def __init__(self):
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -30,6 +31,7 @@ print(f"Loaded {len(documents)} pages")
 # ----------------------------
 # Chunking
 # ----------------------------
+
 splitter = RecursiveCharacterTextSplitter(
     chunk_size=500,
     chunk_overlap=50
@@ -42,6 +44,7 @@ print(f"Created {len(chunks)} chunks")
 # ----------------------------
 # Embeddings
 # ----------------------------
+
 embedding_model = SBERTEmbeddings()
 
 print("Creating vector database...")
