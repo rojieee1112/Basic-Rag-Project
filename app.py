@@ -1,11 +1,13 @@
 from langchain_community.vectorstores import Chroma
 from sentence_transformers import SentenceTransformer
 from langchain_core.embeddings import Embeddings
+
 import ollama
 
 # ----------------------------
 # 1. Embedding Model Wrapper
 # ----------------------------
+
 
 class SBERTEmbeddings(Embeddings):
     def __init__(self):
@@ -68,6 +70,7 @@ Question:
 {query}
 """
 
+    
     # Step 3: Call local LLM (Ollama)
     response = ollama.chat(
         model="llama3",
@@ -76,6 +79,7 @@ Question:
         ]
     )
 
+    
     # Step 4: Output answer
     print("\n--- Answer ---")
     print(response["message"]["content"])
